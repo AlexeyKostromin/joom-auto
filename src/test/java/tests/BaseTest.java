@@ -7,6 +7,7 @@ import mobile.Initializer;
 import mobile.helper.Helper;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+
 @Slf4j
 public class BaseTest {
 

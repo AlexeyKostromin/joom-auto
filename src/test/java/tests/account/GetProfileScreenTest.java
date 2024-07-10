@@ -22,4 +22,17 @@ public class GetProfileScreenTest extends BaseTest {
                 .openProfileScreen()
                 .verifyLoginScreenOpened(loginTitle);
     }
+
+    @Test
+    @DisplayName("User registration")
+    @TestDescription("Close the add, skip the quiz, open profile and signup")
+    public void registrationUserTest(){
+
+        JoomHomeScreen joomHomeScreen = new JoomHomeScreen(driver);
+        joomHomeScreen
+                .closeAdd()
+                .skipQuiz()
+                .openProfileScreen();
+
+    }
 }

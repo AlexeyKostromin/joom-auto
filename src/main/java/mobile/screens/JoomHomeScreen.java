@@ -18,8 +18,8 @@ public class JoomHomeScreen extends BaseScreen {
     }
 
     public JoomHomeScreen closeAdd() {
-        int x = 996;
-        int y = 190;
+        int x = 990;
+        int y = 260;
 
         tapByCoordinates(x, y);
         log.info("Advertisement: closed");
