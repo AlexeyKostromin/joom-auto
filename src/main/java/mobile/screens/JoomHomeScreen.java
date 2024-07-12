@@ -10,7 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 @Slf4j
-@Setter//TODO:remove?
+//@Setter//TODO:remove?
 public class JoomHomeScreen extends BaseScreen {
     public JoomHomeScreen(AppiumDriver driver) {
         super(driver);
@@ -18,11 +18,36 @@ public class JoomHomeScreen extends BaseScreen {
     }
 
     public JoomHomeScreen closeAdd() {
-        int x = 990;
-        int y = 260;
+//        int x = 990;
+//        int y = 260;
+
+        int x = 994;
+        int y = 256;
 
         tapByCoordinates(x, y);
         log.info("Advertisement: closed");
+
+        return new JoomHomeScreen(driver);
+    }
+
+    @AndroidFindBy(xpath = JoomHomeLocators.ENABLE_NOTIFICATION_XPATH)
+    private WebElement enableNotificationsButton;
+
+    public JoomHomeScreen enableNotifications(){
+        wainUntilElementIsVisible(enableNotificationsButton);
+        enableNotificationsButton.click();
+        log.info("Notification: enabled");
+
+        return new JoomHomeScreen(driver);
+    }
+
+    @AndroidFindBy(xpath = JoomHomeLocators.NOTIFICATIONS_PERMISSION_ALLOW_XPATH)
+    private WebElement allowNotifications;
+
+    public JoomHomeScreen allowNotifications(){
+        wainUntilElementIsVisible(allowNotifications);
+        allowNotifications.click();
+        log.info("Notifications: allowed");
 
         return new JoomHomeScreen(driver);
     }

@@ -3,6 +3,7 @@ package mobile.screens;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import mobile.enums.LoginTitle;
 import mobile.helper.Helper;
@@ -16,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ProfileScreen extends BaseScreen {
     public ProfileScreen(AppiumDriver driver) {
         super(driver);
-        PageFactory.initElements(new AppiumFieldDecorator(driver), this);//TODO:do we need this?
+        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
     public void verifyLoginScreenOpened(LoginTitle loginTitle) {
@@ -26,10 +27,11 @@ public class ProfileScreen extends BaseScreen {
 
         log.info("Verified '{}' text is visible", loginTitle.getValue());
     }
+
     @AndroidFindBy(xpath = LoginLocators.LOGIN_BUTTON_XPATH)
     private WebElement registrationButton;
 
-    public ProfileScreen openRegistrationForm(){
+    public ProfileScreen openRegistrationForm() {
         wainUntilElementIsVisible(registrationButton);
         registrationButton.click();
         log.info("Login profile: opened");
@@ -39,7 +41,7 @@ public class ProfileScreen extends BaseScreen {
     @AndroidFindBy(xpath = LoginLocators.MORE_OPTIONS_BUTTON_XPATH)
     private WebElement showMoreOptionsButton;
 
-    public ProfileScreen showMoreOptions(){
+    public ProfileScreen showMoreOptions() {
         wainUntilElementIsVisible(showMoreOptionsButton);
         showMoreOptionsButton.click();
         return this;
@@ -48,15 +50,13 @@ public class ProfileScreen extends BaseScreen {
     @AndroidFindBy(xpath = LoginLocators.LOGIN_WITH_EMAIL_BUTTON_XPATH)
     private WebElement signupWithEmailButton;
 
-    public SignupPopupScreen signupWithEmail(){
+    public SignupPopupScreen signupWithEmailSelect() {
         showMoreOptions();
 
         wainUntilElementIsVisible(signupWithEmailButton);
         signupWithEmailButton.click();
-        log.info("Signup with email: accepted");
+        log.info("Signup with email: selected");
         return new SignupPopupScreen(driver);
     }
-
-
 
 }

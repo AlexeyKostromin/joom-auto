@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public enum AccountTitle {
-    NEW_USER_DATA("Nick Tester"),
+    NEW_USER_DATA("Alex The second"),
     MY_ORDERS_TITLE("My orders");
 
     private final String value;
