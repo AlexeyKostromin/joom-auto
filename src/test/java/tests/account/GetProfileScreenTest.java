@@ -32,7 +32,7 @@ public class GetProfileScreenTest extends BaseTest {
 
     @Test
     @DisplayName("User registration")
-    @TestDescription("Close the add, skip the quiz, open profile and signup 1")
+    @TestDescription("Close the add, skip the quiz, open profile and signup 1-1")
     public void registrationUserTest() {
 
         AccountTitle randomAccountTitle = FakeDataGenerator.getRandomOption(AccountTitle.class);
